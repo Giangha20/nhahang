@@ -1,7 +1,7 @@
 {
-  "name": "Tiếng Trung Giang Hà — HSK",
-  "short_name": "Giang Hà HSK",
-  "description": "Ứng dụng học tiếng Trung HSK 1–6 với từ vựng, flashcard, luyện nghe, Pinyin và tiến trình cá nhân.",
+  "name": "Quán ăn ngon",
+  "short_name": "Quán ngon ",
+  "description": "Uy tín, phục vụ khách hàng tận tâm.",
   "lang": "vi",
   "start_url": "./index.html",
   "scope": "./",
