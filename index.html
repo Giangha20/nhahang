@@ -1,435 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Duck Race Luxury</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#c94f2d">
+  <title>Quán Ngon | Đặt món trực tuyến</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-default">
-  <div class="bg-layer">
-    <div class="cloud cloud-1"></div>
-    <div class="cloud cloud-2"></div>
-    <div class="cloud cloud-3"></div>
-  </div>
+<body data-page="customer">
+  <header class="site-header">
+    <a class="brand" href="#home"><span class="brand-mark">🍜</span><span><b id="brandName">QUÁN NGON</b><small>Món ngon mỗi ngày</small></span></a>
+    <nav class="desktop-nav" aria-label="Điều hướng chính">
+      <a href="#home" data-nav-view="home">Trang chủ</a><a href="#menu" data-nav-view="menu">Thực đơn</a><a href="#bestsellers" data-nav-view="bestsellers">Món bán chạy</a><a href="#offers" data-nav-view="offers">Khuyến mãi</a><a href="#contact" data-nav-view="contact">Liên hệ</a><a href="#reviews" data-nav-view="reviews">Đánh giá</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" title="Đổi giao diện" aria-label="Đổi giao diện">◐</button>
+      <button class="icon-btn" id="favoritesToggle" title="Món yêu thích" aria-label="Món yêu thích">♡</button>
+      <button class="icon-btn cart-trigger" id="cartToggle" title="Giỏ hàng" aria-label="Giỏ hàng">🛒<span id="cartCount" class="count-badge">0</span></button>
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuToggle" aria-label="Mở menu">☰</button>
+    </div>
+  </header>
+  <div class="mobile-nav" id="mobileNav"><a href="#home" data-nav-view="home">Trang chủ</a><a href="#menu" data-nav-view="menu">Thực đơn</a><a href="#bestsellers" data-nav-view="bestsellers">Món bán chạy</a><a href="#offers" data-nav-view="offers">Khuyến mãi</a><a href="#contact" data-nav-view="contact">Liên hệ</a><a href="#reviews" data-nav-view="reviews">Đánh giá</a><a href="admin.html">Quản trị nhà hàng ↗</a></div>
 
-  <div class="app-shell">
-    <header class="topbar glass">
-      <div class="brand">
-        <div class="brand-icon avatar-top-brand">
-          <div class="avatar-frame-wrap frame-common" id="topAvatarFrame">
-            <img id="playerAvatarTop" class="round-avatar" src="" alt="Avatar">
-          </div>
-        </div>
-        <div>
-          <h1>Duck Race Luxury</h1>
-          <p>Game đua vịt siêu đẹp siêu mượt</p>
-        </div>
+  <main>
+    <section class="hero customer-view" data-site-view="home" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="live-dot"></span> TƯƠI NGON MỖI NGÀY</span>
+        <h1>Món ngon mỗi ngày,<br><em>niềm vui trọn vị.</em></h1>
+        <p>Từ căn bếp ấm áp đến bàn ăn của bạn. Chọn món yêu thích và đặt chỉ trong vài thao tác.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#menu">Xem thực đơn <span>→</span></a><a class="text-link" href="#bestsellers">Khám phá món nổi bật ↗</a></div>
+        <div class="hero-stats"><div><b>40+</b><span>Món ngon</span></div><div><b>4.9/5</b><span>Đánh giá mẫu</span></div><div><b>30 phút</b><span>Giao dự kiến</span></div></div>
       </div>
-
-      <div class="player-summary">
-        <div class="summary-chip"><span>💰</span><strong id="coinsText">1000</strong></div>
-        <div class="summary-chip"><span>⭐</span><strong id="levelText">1</strong></div>
-        <div class="summary-chip"><span>🔥</span><strong id="streakText">0</strong></div>
-      </div>
-    </header>
-
-    <section class="mobile-home sketch-layout glass">
-      <button class="sketch-card avatar-card" id="openProfileBtn">
-        <div class="avatar-frame-wrap frame-common" id="homeAvatarFrame">
-          <img id="playerAvatarHome" class="round-avatar" src="" alt="Avatar">
-        </div>
-        <span class="avatar-card-label">Avatar</span>
-      </button>
-
-      <button class="sketch-card settings-mini" id="openSettingsBtn" aria-label="Cài đặt">
-        <span class="sketch-icon">⚙️</span>
-      </button>
-
-      <div class="duck-title-box">
-        <div class="duck-title-main">DUCK RACE</div>
-        <div class="duck-title-sub">Luxury</div>
-      </div>
-
-      <button class="sketch-card history-mid-box" id="openHistoryBtn">
-        <span class="sketch-icon">🧾</span>
-        <span>Hoạt động gần đây</span>
-      </button>
-
-      <button class="sketch-card season-top-box" id="openSeasonBtn">
-        <span class="sketch-icon">👑</span>
-        <span>BXH mùa</span>
-      </button>
-
-      <button class="sketch-card inventory-mini-box" id="openInventoryBtn" aria-label="Kho đồ">
-        <span class="sketch-icon">🎒</span>
-      </button>
-
-      <button class="sketch-card shop-left-box" id="openShopBtn">
-        <span class="sketch-icon">🛒</span>
-        <span>Shop</span>
-      </button>
-
-      <button class="sketch-card quest-right-box" id="openQuestBtn">
-        <span class="sketch-icon">📋</span>
-        <span>Nhiệm vụ hằng ngày</span>
-      </button>
-
-      <div class="sketch-bottom-nav">
-        <button class="bottom-item" id="openSpinBtn">
-          <span class="sketch-icon">🎡</span>
-          <span>Vòng quay</span>
-        </button>
-
-        <button class="bottom-item race-main-btn" id="openRaceBtn">
-          <span class="sketch-icon">🏁</span>
-          <span>Vào đường đua</span>
-        </button>
-
-        <button class="bottom-item" id="openProfileBtnBottom">
-          <span class="sketch-icon">👤</span>
-          <span>Hồ sơ</span>
-        </button>
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=85" alt="Món ăn tươi ngon" onerror="this.src='https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=80'">
+        <div class="hero-note"><span class="note-icon">✦</span><span><b>Ngon từ nguyên liệu</b><small>Chuẩn bị khi bạn đặt món</small></span></div>
+        <div class="hero-sticker">MADE WITH<br><b>♥ CARE</b></div>
       </div>
     </section>
 
-    <section class="race-panel glass hidden-panel" id="raceSection">
-      <div class="race-top">
-        <div>
-          <h2>🏁 Đường đua</h2>
-          <p class="muted">Chọn vịt, skin, tốc độ rồi bắt đầu</p>
-        </div>
-        <div class="race-badges">
-          <span class="badge">🥇 +100 xu</span>
-          <span class="badge">🥈 +50 xu</span>
-          <span class="badge">🥉 +25 xu</span>
-          <span class="badge">🏅 +10 xu</span>
-        </div>
-      </div>
-
-      <div class="race-controls">
-        <div class="input-group">
-          <label for="playerNameInput">Tên người chơi</label>
-          <input id="playerNameInput" type="text" maxlength="20" placeholder="Nhập tên của bạn" />
-        </div>
-
-        <div class="input-group">
-          <label for="duckCountSelect">Số lượng vịt</label>
-          <select id="duckCountSelect">
-            <option value="4">4 con</option>
-            <option value="5">5 con</option>
-            <option value="6">6 con</option>
-            <option value="7">7 con</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="betDuckSelect">Chọn vịt</label>
-          <select id="betDuckSelect"></select>
-        </div>
-
-        <div class="input-group">
-          <label for="speedModeSelect">Tốc độ</label>
-          <select id="speedModeSelect">
-            <option value="normal">Bình thường</option>
-            <option value="fast">Nhanh</option>
-            <option value="crazy">Siêu nhanh</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="fpsModeSelect">FPS</label>
-          <select id="fpsModeSelect">
-            <option value="60">60 FPS</option>
-            <option value="120">120 FPS</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="action-row">
-        <button class="main-btn" id="startRaceBtn">🚀 Bắt đầu</button>
-        <button class="main-btn alt" id="resetRaceBtn">🔄 Chơi lại</button>
-        <button class="main-btn alt" id="backHomeBtn">🏠 Về màn hình chính</button>
-      </div>
-
-      <div class="status-line" id="statusText">Nhấn “Bắt đầu” để chơi.</div>
-
-      <div class="countdown-overlay" id="countdownOverlay">3</div>
-
-      <div class="track-scroll" id="trackScroll">
-        <div class="track-wrap" id="trackWrap">
-          <div class="finish-line"></div>
-          <div id="bossBanner" class="boss-banner hidden">👑 BOSS VỊT VÀNG XUẤT HIỆN!</div>
-          <div id="trackLanes"></div>
-          <div id="confettiLayer" class="confetti-layer"></div>
-        </div>
-      </div>
+    <section class="trust-strip customer-view" data-site-view="home">
+      <div><span>✦</span><b>Nguyên liệu tươi</b><small>Chọn lọc mỗi ngày</small></div><div><span>♨</span><b>Nấu khi đặt</b><small>Nóng hổi, trọn vị</small></div><div><span>⌁</span><b>Giao hàng tiện lợi</b><small>Theo dõi đơn dễ dàng</small></div><div><span>♡</span><b>Phục vụ tận tâm</b><small>Luôn lắng nghe bạn</small></div>
     </section>
-  </div>
 
-  <div class="modal-backdrop hidden" id="shopModal">
-    <div class="modal glass">
-      <div class="modal-head">
-        <h2>🛒 Shop skin</h2>
-        <button class="close-btn" data-close="shopModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div id="shopGrid" class="shop-grid"></div>
-        <div class="modal-divider"></div>
-        <div class="modal-head small-head">
-          <h2>🖼️ Shop khung avatar</h2>
-        </div>
-        <div id="avatarFrameGrid" class="avatar-frame-grid"></div>
-      </div>
-    </div>
-  </div>
+    <section class="section menu-section customer-view" data-site-view="menu" id="menu">
+      <div class="section-heading"><div><span class="eyebrow">BẠN MUỐN ĂN GÌ HÔM NAY?</span><h2>Khám phá thực đơn</h2><p>Những món quen thuộc, hương vị khó quên.</p></div><button class="btn btn-outline" id="historyBtn">Đơn hàng đã đặt ↗</button></div>
+      <div class="search-row"><label class="search-box"><span>⌕</span><input id="foodSearch" type="search" placeholder="Tìm món ăn bạn yêu thích..." autocomplete="off"><kbd>⌘ K</kbd></label><select id="sortFoods" class="select-control" aria-label="Sắp xếp món"><option value="featured">Đề xuất</option><option value="priceAsc">Giá thấp đến cao</option><option value="priceDesc">Giá cao đến thấp</option><option value="rating">Đánh giá cao</option></select></div>
+      <div class="category-list" id="categoryList"></div>
+      <div class="menu-meta"><span id="foodResultCount">Đang tải thực đơn...</span><span class="tiny-note">Giá đã được niêm yết rõ ràng</span></div>
+      <div class="food-grid" id="foodGrid"></div>
+    </section>
 
-  <div class="modal-backdrop hidden" id="inventoryModal">
-    <div class="modal glass">
-      <div class="modal-head">
-        <h2>🎒 Kho skin</h2>
-        <button class="close-btn" data-close="inventoryModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div id="inventoryGrid" class="inventory-grid"></div>
-      </div>
-    </div>
-  </div>
+    <section class="bestseller-band customer-view" data-site-view="bestsellers" id="bestsellers"><div><span class="eyebrow">ĐƯỢC YÊU THÍCH</span><h2>Món ngon được gọi nhiều</h2><p>Gợi ý hấp dẫn để bữa ăn của bạn thêm trọn vẹn.</p></div><button class="btn btn-light" id="showPopular">Xem toàn bộ thực đơn →</button><div class="food-grid popular-food-grid" id="popularGrid"></div></section>
+    <section class="section offer-section customer-view" data-site-view="offers" id="offers"><div class="offer-card"><div><span class="eyebrow">ƯU ĐÃI DÀNH CHO BẠN</span><h2>Thêm niềm vui,<br>thêm ưu đãi.</h2><p>Nhập mã <b>WELCOME10</b> khi thanh toán để nhận ưu đãi mẫu 10%.</p><button class="btn btn-primary" id="copyCoupon">Sao chép mã <span>↗</span></button></div><div class="offer-art"><span>10<sup>%</sup></span><small>WELCOME OFFER</small></div></div></section>
+    <section class="section service-section customer-view" data-site-view="home"><div class="section-heading"><div><span class="eyebrow">ĐẶT MÓN THẬT DỄ DÀNG</span><h2>Bạn chọn, chúng tôi chuẩn bị</h2></div></div><div class="service-grid"><article><span>01</span><h3>Chọn món yêu thích</h3><p>Khám phá thực đơn, tùy chỉnh size và topping theo khẩu vị.</p></article><article><span>02</span><h3>Đặt món nhanh chóng</h3><p>Chọn giao tận nơi hoặc nhận tại quán với thông tin rõ ràng.</p></article><article><span>03</span><h3>Theo dõi đơn hàng</h3><p>Kiểm tra trạng thái đơn và xem lại lịch sử đặt món bất cứ lúc nào.</p></article></div></section>
+  </main>
+<section class="section reviews-section customer-view" data-site-view="reviews" id="reviews"><div class="section-heading"><div><span class="eyebrow">KHÁCH HÀNG NÓI GÌ</span><h2>Đánh giá từ khách hàng</h2><p>Những chia sẻ sau khi trải nghiệm món ăn tại Quán Ngon.</p></div><button class="btn btn-primary" id="reviewHistoryBtn">Đánh giá đơn đã hoàn thành</button></div><div id="customerReviews" class="customer-reviews-list"></div></section>
+<footer class="customer-view" data-site-view="contact" id="contact"><div class="footer-main"><a class="brand brand-footer" href="#home"><span class="brand-mark">🍜</span><span><b id="footerBrand">QUÁN NGON</b><small>Món ngon mỗi ngày</small></span></a><p>Những bữa ăn ngon bắt đầu từ sự chăm chút trong từng món.</p><div><b>Liên hệ</b><span id="footerAddress">Địa chỉ nhà hàng</span><span id="footerPhone">0900 000 000</span><span id="footerHours">08:00 – 22:00</span></div><div><b>Khám phá</b><a href="#menu">Thực đơn</a><a href="#offers">Khuyến mãi</a><a href="admin.html">Quản trị viên</a></div></div><div class="footer-bottom"><span>© 2026 Quán Ngon. Demo đặt món trực tuyến.</span><span>Được làm bằng sự tận tâm ♥</span></div></footer>
 
-  <div class="modal-backdrop hidden" id="spinModal">
-    <div class="modal glass modal-narrow">
-      <div class="modal-head">
-        <h2>🎡 Vòng quay may mắn</h2>
-        <button class="close-btn" data-close="spinModal">✕</button>
-      </div>
-      <div class="modal-body center-body">
-        <div class="spin-only-top1-note" id="spinOnlyTop1Note">
-          Chỉ top 1 mới được quay vòng quay.
-        </div>
-
-        <div class="spin-pointer">▼</div>
-        <div class="wheel-frame">
-          <div class="wheel-core" id="wheelCore">🎁</div>
-        </div>
-
-        <div class="spin-reward-list">
-          <div>30 xu</div>
-          <div>50 xu</div>
-          <div>Skin Royal</div>
-          <div>Skin Flame</div>
-          <div>Skin Rainbow</div>
-          <div>Vật phẩm hiếm</div>
-        </div>
-
-        <button class="main-btn" id="spinOnceBtn">🎡 Quay ngay</button>
-        <div class="muted spin-note">Muốn quay, bạn phải về top 1 trong trận gần nhất.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="settingsModal">
-    <div class="modal glass modal-narrow">
-      <div class="modal-head">
-        <h2>⚙️ Cài đặt game</h2>
-        <button class="close-btn" data-close="settingsModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="settings-list">
-          <div class="input-group">
-            <label for="settingsFpsSelect">FPS</label>
-            <select id="settingsFpsSelect">
-              <option value="60">60 FPS</option>
-              <option value="120">120 FPS</option>
-            </select>
-          </div>
-
-          <div class="input-group">
-            <label for="settingsSpeedSelect">Tốc độ đua</label>
-            <select id="settingsSpeedSelect">
-              <option value="normal">Bình thường</option>
-              <option value="fast">Nhanh</option>
-              <option value="crazy">Siêu nhanh</option>
-            </select>
-          </div>
-
-          <div class="input-group">
-            <label for="bgThemeSelect">Màu nền game</label>
-            <select id="bgThemeSelect">
-              <option value="theme-default">Mặc định</option>
-              <option value="theme-sunset">Hoàng hôn</option>
-              <option value="theme-night">Ban đêm</option>
-              <option value="theme-candy">Kẹo ngọt</option>
-            </select>
-          </div>
-
-          <div class="toggle-row">
-            <span>Hiệu ứng nặng</span>
-            <button class="toggle-btn" id="effectsToggleBtn">Bật</button>
-          </div>
-
-          <div class="toggle-row">
-            <span>Rung mở màn</span>
-            <button class="toggle-btn" id="shakeToggleBtn">Bật</button>
-          </div>
-
-          <div class="action-row tight">
-            <button class="main-btn" id="saveSettingsBtn">💾 Lưu cài đặt</button>
-            <button class="main-btn danger-btn" id="resetRankBtn">🔄 Reset rank</button>
-          </div>
-
-          <div class="action-row tight">
-            <button class="main-btn danger-btn" id="resetDataBtn">🗑 Xóa dữ liệu</button>
-            <button class="main-btn alt" id="openAvatarPickerBtn">📸 Đổi avatar</button>
-          </div>
-
-          <input type="file" id="avatarInput" accept="image/*" hidden>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="achievementsModal">
-    <div class="modal glass">
-      <div class="modal-head">
-        <h2>🏆 Thành tựu</h2>
-        <button class="close-btn" data-close="achievementsModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div id="achievementsGrid" class="achievements-grid"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="seasonModal">
-    <div class="modal glass modal-narrow">
-      <div class="modal-head">
-        <h2>👑 Bảng xếp hạng mùa</h2>
-        <button class="close-btn" data-close="seasonModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="season-stats">
-          <div class="profile-item">
-            <span>Điểm mùa của bạn</span>
-            <strong id="seasonPointsText">0</strong>
-          </div>
-          <div class="profile-item">
-            <span>Hạng hiện tại</span>
-            <strong id="seasonRankText">Đồng V</strong>
-          </div>
-        </div>
-        <div class="reset-note">Reset BXH mùa sau: <span id="seasonResetNote">7 ngày</span></div>
-        <div id="seasonBoard" class="season-board"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="historyModal">
-    <div class="modal glass">
-      <div class="modal-head">
-        <h2>🧾 Hoạt động gần đây</h2>
-        <button class="close-btn" data-close="historyModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div id="historyList" class="history-list"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="questModal">
-    <div class="modal glass">
-      <div class="modal-head">
-        <h2>📋 Nhiệm vụ hằng ngày</h2>
-        <button class="close-btn" data-close="questModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div id="questsList" class="quest-list"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="profileModal">
-    <div class="modal glass modal-narrow">
-      <div class="modal-head">
-        <h2>👤 Hồ sơ người chơi</h2>
-        <button class="close-btn" data-close="profileModal">✕</button>
-      </div>
-      <div class="modal-body center-body">
-        <div class="profile-avatar-box">
-          <div class="avatar-frame-wrap frame-common" id="profileAvatarFrame">
-            <img id="playerAvatarProfile" class="round-avatar" src="" alt="Avatar">
-          </div>
-        </div>
-
-        <div class="profile-rank-box">
-          <div><strong id="profileRankText">Đồng V</strong></div>
-          <div id="profileRankPointsText">0 RP</div>
-        </div>
-
-        <div class="profile-stats popup-profile-stats">
-          <div class="stat-box"><span>Tỉ lệ top 1</span><strong id="popupWinRateText">0%</strong></div>
-          <div class="stat-box"><span>Top 1</span><strong id="popupWinsText">0</strong></div>
-          <div class="stat-box"><span>Không top 1</span><strong id="popupLossesText">0</strong></div>
-          <div class="stat-box"><span>Tổng lời</span><strong id="popupProfitText">0</strong></div>
-        </div>
-
-        <div class="action-row tight">
-          <button class="main-btn alt" id="openAvatarPickerBtnProfile">📸 Đổi avatar</button>
-          <button class="main-btn" id="openAvatarFrameShopBtn">🖼️ Khung avatar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="resultModal">
-    <div class="modal glass modal-narrow">
-      <div class="modal-head">
-        <h2>📣 Kết quả trận đua</h2>
-        <button class="close-btn" data-close="resultModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div id="resultTitle" class="result-title">Kết quả</div>
-        <div id="resultReward" class="result-reward">+0 xu</div>
-        <ol id="resultRanking" class="result-ranking"></ol>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="previewModal">
-    <div class="modal glass modal-narrow">
-      <div class="modal-head">
-        <h2>👀 Preview skin</h2>
-        <button class="close-btn" data-close="previewModal">✕</button>
-      </div>
-      <div class="modal-body center-body">
-        <div id="previewSkinIcon" class="preview-skin-icon">🦆</div>
-        <div id="previewSkinName" class="preview-skin-name">Classic</div>
-        <div id="previewSkinRarity" class="preview-skin-rarity">Thường</div>
-        <div id="previewSkinPrice" class="preview-skin-price">0 xu</div>
-        <button class="main-btn" id="previewBuyBtn">🛍️ Mua ngay</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-backdrop hidden" id="avatarFrameModal">
-    <div class="modal glass modal-narrow">
-      <div class="modal-head">
-        <h2>🖼️ Khung avatar</h2>
-        <button class="close-btn" data-close="avatarFrameModal">✕</button>
-      </div>
-      <div class="modal-body">
-        <div id="avatarFrameGrid" class="avatar-frame-grid"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="spin-reward-toast hidden" id="spinRewardToast">
-    <div class="spin-reward-box">
-      <div id="spinRewardIcon" class="spin-reward-icon">🎉</div>
-      <div id="spinRewardTitle" class="spin-reward-title">Bạn đã trúng!</div>
-      <div id="spinRewardText" class="spin-reward-text">Phần thưởng</div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Giỏ hàng"><div class="drawer-head"><div><span class="eyebrow">ĐƠN CỦA BẠN</span><h2>Giỏ hàng <span id="drawerCartCount"></span></h2></div><button class="close-btn" id="closeCart" aria-label="Đóng">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-bottom"><div class="coupon-inline"><input id="couponInput" placeholder="Mã giảm giá"><button class="btn btn-outline" id="applyCoupon">Áp dụng</button></div><div class="totals"><div><span>Tạm tính</span><b id="subtotalValue">0đ</b></div><div><span>Phí giao hàng</span><b id="deliveryValue">0đ</b></div><div><span>Giảm giá</span><b id="discountValue">0đ</b></div><div class="grand-total"><span>Tổng cộng</span><b id="totalValue">0đ</b></div></div><button class="btn btn-primary btn-full" id="checkoutBtn">Tiến hành đặt món →</button><p class="fine-print">Bạn sẽ xác nhận thông tin trước khi tạo đơn.</p></div></aside>
+  <div class="overlay" id="overlay"></div>
+  <div class="modal-wrap" id="foodModal"><div class="modal modal-food"><button class="close-btn modal-close" data-close="foodModal">×</button><div id="foodModalContent"></div></div></div>
+  <div class="modal-wrap" id="checkoutModal"><div class="modal"><button class="close-btn modal-close" data-close="checkoutModal">×</button><span class="eyebrow">THÔNG TIN ĐẶT MÓN</span><h2>Hoàn tất đơn hàng</h2><form id="checkoutForm" class="form-grid"><label>Họ và tên *<input name="customerName" required placeholder="Nguyễn Văn A" maxlength="80"></label><label>Số điện thoại *<input name="phone" required inputmode="tel" pattern="[0-9+ .()-]{9,18}" placeholder="09xxxxxxxx"></label><fieldset class="full-span"><legend>Bạn muốn nhận món như thế nào?</legend><label class="radio-line"><input type="radio" name="fulfillment" value="delivery" checked> Giao tận nơi</label><label class="radio-line"><input type="radio" name="fulfillment" value="pickup"> Nhận tại quán</label></fieldset><label class="full-span" id="addressField">Địa chỉ giao hàng *<input name="address" placeholder="Số nhà, đường, phường/xã..."></label><label id="tableField" class="hidden">Chọn bàn<select name="table"><option value="">Chọn bàn</option></select></label><label>Thời gian nhận<select name="receiveTime"><option>Ngay khi có thể</option><option>Trong 30 phút</option><option>Trong 1 giờ</option></select></label><label class="full-span">Phương thức thanh toán<select name="payment"><option>Tiền mặt khi nhận món</option><option>Chuyển khoản ngân hàng</option><option>Thanh toán tại quán</option></select></label><label class="full-span">Ghi chú<textarea name="orderNote" rows="2" placeholder="Lưu ý cho nhà bếp..."></textarea></label><div class="checkout-summary full-span"><span>Tổng thanh toán</span><b id="checkoutTotal">0đ</b></div><button class="btn btn-primary btn-full full-span" id="placeOrderBtn" type="submit">Xác nhận đặt món</button><p class="fine-print full-span">Đơn hàng được gửi tới máy chủ của nhà hàng. Chuyển khoản cần nhà hàng xác nhận thủ công.</p></form></div></div>
+  <div class="modal-wrap" id="historyModal"><div class="modal modal-wide"><button class="close-btn modal-close" data-close="historyModal">×</button><span class="eyebrow" id="historyModalEyebrow">THEO DÕI VÀ XEM LẠI</span><h2 id="historyModalTitle">Đơn hàng đã đặt</h2><p class="muted" id="historyModalHint">Các đơn hàng đã đặt trên trình duyệt và thiết bị này. Không cần nhập số điện thoại.</p><div id="historyResults"></div></div></div>
+  <div class="modal-wrap" id="successModal"><div class="modal success-modal"><div class="success-icon">✓</div><span class="eyebrow">ĐẶT MÓN THÀNH CÔNG</span><h2>Cảm ơn bạn!</h2><p>Quán đã ghi nhận đơn hàng của bạn.</p><div class="success-order"><span>Mã đơn hàng</span><b id="successOrderId"></b><span>Tổng thanh toán</span><b id="successOrderTotal"></b></div><div id="bankTransferPanel" class="bank-transfer-panel hidden"></div><button class="btn btn-primary btn-full" data-close="successModal">Tiếp tục khám phá</button></div></div>
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+<script src="script.js"></script>
 </body>
 </html>
