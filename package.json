@@ -4,8 +4,14 @@
   "private": true,
   "description": "Quán Ngon ordering site with server-side admin authentication and shared order database",
   "main": "server.js",
-  "scripts": { "start": "node server.js", "dev": "node server.js", "check": "node --check server.js && node --check script.js" },
-  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check script.js"
+  },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "better-sqlite3": "^11.8.1",
